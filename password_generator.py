@@ -1,5 +1,7 @@
 """Модуль для генерации безопасных паролей."""
 
+__version__ = "1.1.0"
+
 import secrets
 import string
 
