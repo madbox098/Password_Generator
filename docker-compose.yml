@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  password-generator:
+    build: . 
+    container_name: password-generator-app
+    ports:
+      - "5005:5000" 
+    restart: always
+    
+    
+    depends_on:
+      - service_one
+      - service_two
+
+  
+  service_one:
+    build: ./microservices/service_one # Искать Dockerfile в этой папке
+    container_name: service-one-app
+    ports:
+      - "5001:5000" 
+    restart: always
+
+ 
+  service_two:
+    build: ./microservices/service_two
+    container_name: service-two-app
+    ports:
+      - "5002:5000"
+    restart: always
